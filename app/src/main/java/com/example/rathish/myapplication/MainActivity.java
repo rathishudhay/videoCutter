@@ -327,12 +327,13 @@ ArrayList<String> cutFileNames=new ArrayList<String>();
         //Date object
         //getTime() returns current time in milliseconds
         long time = dateDT.getTime();
+        Log.d("DATETIME123",String.valueOf(time));
         //Passed the milliseconds to constructor of Timestamp class
         Timestamp ts = new Timestamp(time);
         Log.d("Current Time Stamp: ",ts.toString());
 
         String[] dateArr=ts.toString().split(" ");
-        dateArr[1].replaceAll(".",":");
+        dateArr[1].replaceAll(".","a");
         //String date=ts.toString().replace(" ","d");
 //            File dir=new File(file.getPath()+"/"+dateArr[0]);
 //            if(!dir.exists()){
@@ -345,9 +346,12 @@ ArrayList<String> cutFileNames=new ArrayList<String>();
 //         dir1=new File(file.getPath()+"/"+dateArr[0]+"/"+String.valueOf(i));
 //        }
 //        dir1.mkdir();
+        File dir1=new File(file.getPath()+"/"+String.valueOf(time));
+        if(!dir1.exists()){
+            dir1.mkdir();
+        }
 
-
-            filePath=file.getPath()+"/"+dateArr[0]+"/"+filePrefix + fileExtn;
+        filePath=file.getPath()+"/"+String.valueOf(time)+"/"+filePrefix + fileExtn;
 //            File dir=new File(file.getPath()+date);
 
 
