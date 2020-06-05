@@ -1,1 +1,1 @@
-include ':app'
+include ':sample', ':mp4compose'
